@@ -1,0 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Laila:wght@400;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  font-family: "Laila", sans-serif;
+  scroll-behavior: smooth;
+}
+.head {
+  @apply mx-auto max-w-[1640px] p-4 md:p-8 lg:p-14;
+}
+.stroke-text{
+  -webkit-text-stroke-width:1px;
+  -webkit-text-stroke-color:rgb(206, 204, 204);
+}
