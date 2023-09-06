@@ -10,20 +10,19 @@ const Navbar = () => {
   const [showNav, setshowNav] = useState<boolean>(false);
 
   return (
-    <div className="max-w-full p-4 flex justify-between items-center bg-white sticky top-0 z-10 shadow-[0_3px_10px_rgb(0,0,0,0.2)] text-[#001712]">
+    <div className="max-w-full px-4 py-2 flex justify-between items-center bg-white sticky top-0 z-10 shadow-[0_3px_10px_rgb(0,0,0,0.2)] text-[#001712]">
       <img src={LogoImage} alt="web Logo" className="flex flex-row-reverse" />
-      <ul className="hidden md:flex md:space-x-3 lg:space-x-6 font-Primary items-center  font-medium">
+      <nav className="hidden md:flex md:space-x-3 lg:space-x-6 font-Primary items-center  font-medium ">
         {/* displays on wide screen */}
         {NavbarData.map((item, index) => {
           return (
-            <li key={index} className="">
-              <NavLink
-                to={item.path}
-                className={({ isActive }) => (isActive ? "text-[#017358]" : "")}
-              >
-                <span>{item.title}</span>
-              </NavLink>
-            </li>
+            <NavLink
+              key={index}
+              to={item.path}
+              className={({ isActive }) => (isActive ? "text-[#017358]" : "")}
+            >
+              <span>{item.title}</span>
+            </NavLink>
           );
         })}
         <AiOutlineSearch size={20} />
@@ -42,7 +41,7 @@ const Navbar = () => {
             Login
           </Link>
         </div>
-      </ul>
+      </nav>
       {/* mobile menu */}
       <div className="md:hidden " onClick={() => setshowNav(!showNav)}>
         {showNav ? <GrFormClose size={30} /> : <RxHamburgerMenu size={20} />}
@@ -55,13 +54,14 @@ const Navbar = () => {
           viewport={{ once: false, amount: 0.7 }}
           className="absolute top-16 h-screen w-full right-0  space-y-10 justify-center items-center  flex flex-col shadow-md z-10 bg-white font-semibold"
         >
-          {/* displays on wide screen */}
           {NavbarData.map((item, index) => {
             return (
               <NavLink
                 key={index}
                 to={item.path}
-                className={({ isActive }) => (isActive ? " text-textGreen" : "")}
+                className={({ isActive }) =>
+                  isActive ? " text-textGreen" : ""
+                }
               >
                 <span>{item.title}</span>
               </NavLink>
